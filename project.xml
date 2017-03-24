@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="antbuild">
+
+  <path id="common_library">
+      <pathelement location="apache-tomcat-9.0.0.M17/lib/servlet-api.jar"/>
+  </path>
+
+  <target name="clean">
+      <delete dir="web/WEB-INF/classes/Notification"/>
+  </target>
+
+  <target name="compile_for_tomcat" depends="clean">
+      <javac srcdir="src/main/java" destdir="web/WEB-INF/classes" failonerror="true" fork="true">
+          <classpath refid="common_library"/>
+      </javac>
+  </target>
+  <target name="compile_for_manual_control" depends="clean">
+      <javac srcdir="src/main/java" destdir="web/WEB-INF/classes" failonerror="true" fork="true">
+          <classpath refid="common_library"/>
+      </javac>
+  </target>
+</project>
