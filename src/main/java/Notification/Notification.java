@@ -49,7 +49,8 @@ public class Notification
         System.exit(100500);
         //System.gc(); //TODO
 
-        ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        //ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        ExecutorService executor = Executors.newCachedThreadPool(); //Для большого кол-во коротких ассинк запросов
         //checkMemory();
 
         NumberFormat formatter = new DecimalFormat("#0.00000");
